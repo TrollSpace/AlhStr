@@ -75,11 +75,27 @@ public class ArrayImpl implements Array {
 
     @Override
     public void selectSort() {
+        for (int i = 0; i < sizeX-1; i++) {
+            for (int j = 0; j < sizeX; j++) {
+                if (arrData[i] < arrData[j]) {
+                    exchange(i, j);
+                }
+            }
+
+        }
 
     }
 
     @Override
     public void insertSort() {
+        for (int i = 1; i < sizeX; i++) {
+            for (int j = i; j > 0; j--) {
+                if(arrData[j] < arrData[j-1]){
+                    exchange(j, j-1);
+                }
+
+            }
+        }
 
     }
 
