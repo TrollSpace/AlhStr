@@ -7,8 +7,6 @@ public interface Queue {
 
     int remove();
 
-    int peekFront();
-
     int getSize();
 
     boolean isEmpty();
