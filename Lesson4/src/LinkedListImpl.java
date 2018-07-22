@@ -26,7 +26,29 @@ public class LinkedListImpl implements LinkedList {
 
     @Override
     public boolean removeSomewhere(int value) {
-        return false;
+        Item currentItem = firstElement;
+        Item previousItem = null;
+
+        while (currentItem != null) {
+            if (currentItem.getValue() == value) {
+                break;
+            }
+            previousItem = currentItem;
+            currentItem = currentItem.getNextItem();
+        }
+
+        if (currentItem == null) {
+            return false;
+        }
+        if (currentItem == firstElement) {
+            removeFirstItem();                  // А так можно? Или надо явно?
+        } else {
+            Item nextItem = currentItem.getNextItem();
+            previousItem.setNextItem(nextItem);
+        }
+
+        size--; //Забыли этот дикримент
+        return true;
     }
 
     @Override
