@@ -9,10 +9,13 @@ public class ListMain {
         list.insert(5);
         list.insert(143);
         list.insert(12);
+        list.insert(32);
+        list.insert(14444);
 
         list.display();
         System.out.println(list.removeFirstItem());
         System.out.println(list.removeFirstItem());
         System.out.println(list.isEmpty());
+        System.out.println(list.getSize());
     }
 }
