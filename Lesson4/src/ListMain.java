@@ -13,8 +13,8 @@ public class ListMain {
         list.insert(14444);
 
         list.display();
-        System.out.println(list.removeFirstItem());
-        System.out.println(list.removeFirstItem());
+        System.out.println(list.removeSomewhere(14444));
+        list.display();
         System.out.println(list.isEmpty());
         System.out.println(list.getSize());
     }
