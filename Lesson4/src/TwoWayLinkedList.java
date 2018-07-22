@@ -1,5 +1,9 @@
 /**
  * Created by Misha on 22.07.2018.
  */
-public class TwoWayLinkedList {
+public interface TwoWayLinkedList extends LinkedList{
+
+    void insertLast(int value);
+
+    Integer getLastElement();
 }
