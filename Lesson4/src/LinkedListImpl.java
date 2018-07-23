@@ -3,8 +3,8 @@
  */
 public class LinkedListImpl implements LinkedList {
 
-    protected Item firstElement;
-    protected int size;
+    private Item firstElement;
+    private int size;
 
     public LinkedListImpl() {
         this.size = 0;
