@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Main {
     public static void main(String[] args) {
-        int size = 1000000; // на этом размере компьютер начинает заикаться =)
+        int size = 10000;
         ArrayImpl numbers1 = new ArrayImpl(size);
         ArrayImpl numbers2 = new ArrayImpl(size);
         ArrayImpl numbers3 = new ArrayImpl(size);
@@ -20,16 +20,8 @@ public class Main {
             numbers3.addElement(x);
         }
         long start = System.currentTimeMillis();
-        numbers2.bubbleSort();
+        numbers1.bubbleSort();
         long finish = System.currentTimeMillis();
-        System.out.println(finish-start);
-        start = System.currentTimeMillis();
-        numbers1.selectSort();
-        finish = System.currentTimeMillis();
-        System.out.println(finish-start);
-        start = System.currentTimeMillis();
-        numbers3.insertSort();
-        finish = System.currentTimeMillis();
         System.out.println(finish-start);
 
     }
