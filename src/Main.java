@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*
     1. Реализовать рассмотренные структуры данных в консольных программах.
     2. Создать программу, которая переворачивает вводимые строки (Читает справа налево).
@@ -10,12 +8,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Stack st = new StackImpl(ARR_SIZE);
         Queue qu = new QueueImpl(ARR_SIZE);
         Deque dequ = new DequeImpl(ARR_SIZE);
-        Cryptographer cr = new Cryptographer();
 
-        cr.printStackToString(cr.initializeStack());
-
+        initializeStack(st);
         initializeQueue(qu);
         initializeDequeue(dequ);
 
@@ -35,7 +32,12 @@ public class Main {
     }
 
 
+    public static void initializeStack(Stack stack) {
+        for (int i = 0; i < ARR_SIZE; i++) {
+            stack.push(i);
+        }
 
+    }
 
     public static void initializeQueue(Queue queue) {
         for (int i = 0; i < ARR_SIZE; i++) {

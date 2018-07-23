@@ -3,11 +3,11 @@
  */
 public interface Stack {
 
-    char pop();
+    int pop();
 
-    void push(char value);
+    void push(int value);
 
-    char peek();
+    int peek();
 
     int getSize();
 

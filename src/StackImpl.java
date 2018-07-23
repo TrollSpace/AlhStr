@@ -3,28 +3,28 @@
  */
 public class StackImpl implements Stack {
 
-    private char[] data;
+    private int[] data;
     private int currentSize;
 
     public StackImpl(int maxSize) {
         this.currentSize = 0;
-        this.data = new char[maxSize];
+        this.data = new int[maxSize];
     }
 
     @Override
-    public char pop() {
+    public int pop() {
         return this.data[--currentSize];
 
     }
 
     @Override
-    public void push(char value) {
+    public void push(int value) {
         this.data[currentSize++] = value;
 
     }
 
     @Override
-    public char peek() {
+    public int peek() {
         return this.data[currentSize - 1];
     }
 
@@ -42,7 +42,4 @@ public class StackImpl implements Stack {
     public boolean isFull() {
         return currentSize >= data.length;
     }
-
-
-
 }
