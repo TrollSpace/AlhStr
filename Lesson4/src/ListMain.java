@@ -11,8 +11,6 @@ public class ListMain {
         list.insert(12);
 
         list.display();
-        System.out.println(list.removeFirstItem());
-        System.out.println(list.removeFirstItem());
         System.out.println(list.isEmpty());
     }
 }

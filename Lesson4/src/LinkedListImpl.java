@@ -8,15 +8,7 @@ public class LinkedListImpl implements LinkedList {
 
     @Override
     public int removeFirstItem() {
-        if(firstElement == null){
-            throw new IllegalAccessError("Пустой список");
-        }
-        int value = firstElement.getValue();
-
-        Item nextItem = firstElement.getNextItem();
-        firstElement.setNextItem(null);
-        firstElement = nextItem;
-        return value;
+        return 0;
     }
 
     @Override
@@ -33,7 +25,7 @@ public class LinkedListImpl implements LinkedList {
             newElement.setNextItem(firstElement);
             firstElement = newElement;
         }
-        size++;
+         size++;
     }
 
     @Override
@@ -49,7 +41,7 @@ public class LinkedListImpl implements LinkedList {
     @Override
     public void display() {
         Item currentItem = firstElement;  // Подумал можно обойтись без current, но понял свою ошибку быстро. =)
-        while (currentItem != null) {
+        while(currentItem != null){
             System.out.println(currentItem.getValue());
             currentItem = currentItem.getNextItem();
         }
