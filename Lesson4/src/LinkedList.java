@@ -14,10 +14,4 @@ public interface LinkedList {
     boolean isEmpty();
 
     void display();
-
-    Integer getFirstElement();
-
-    Item getFirstItem();
-
-    boolean find(int value);
 }

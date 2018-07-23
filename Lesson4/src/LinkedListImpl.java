@@ -6,13 +6,9 @@ public class LinkedListImpl implements LinkedList {
     private Item firstElement;
     private int size;
 
-    public LinkedListImpl() {
-        this.size = 0;
-    }
-
     @Override
     public int removeFirstItem() {
-        if (firstElement == null) {
+        if(firstElement == null){
             throw new IllegalAccessError("Пустой список");
         }
         int value = firstElement.getValue();
@@ -20,7 +16,6 @@ public class LinkedListImpl implements LinkedList {
         Item nextItem = firstElement.getNextItem();
         firstElement.setNextItem(null);
         firstElement = nextItem;
-        size--;
         return value;
     }
 
@@ -58,28 +53,5 @@ public class LinkedListImpl implements LinkedList {
             System.out.println(currentItem.getValue());
             currentItem = currentItem.getNextItem();
         }
-    }
-
-    @Override
-    public Integer getFirstElement() {
-        return firstElement != null ? firstElement.getValue() : null;
-    }
-
-    @Override
-    public Item getFirstItem() {
-        return firstElement;
-    }
-
-    @Override
-    public boolean find(int value) {
-        Item currentItem = firstElement;
-        while (currentItem != null) {
-            if (currentItem.getValue() == value) {
-                return true;
-            } else {
-                currentItem = currentItem.getNextItem();
-            }
-        }
-        return false;
     }
 }
