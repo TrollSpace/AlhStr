@@ -30,20 +30,19 @@ public class LinkedListImpl implements LinkedList {
 
     @Override
     public int getSize() {
-        return size;
+        return 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return firstElement == null;
+        return false;
     }
 
     @Override
     public void display() {
-        Item currentItem = firstElement;  // Подумал можно обойтись без current, но понял свою ошибку быстро. =)
-        while(currentItem != null){
-            System.out.println(currentItem.getValue());
-            currentItem = currentItem.getNextItem();
+        while(firstElement != null){
+            System.out.println(firstElement.getValue());
+            firstElement = firstElement.getNextItem();
         }
     }
 }
