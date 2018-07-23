@@ -3,22 +3,19 @@
  */
 public class ListMain {
     public static void main(String[] args) {
-        LinkedListImpl list = new LinkedListImpl();
-        LinkedListIterator itr = new LinkedListIterator(list);
+        LinkedList list = new LinkedListImpl();
         System.out.println(list.isEmpty());
-        itr.insertAfter(1);
-        itr.insertAfter(2);
-        itr.insertAfter(13);
-        itr.insertAfter(11);
-        itr.insertAfter(111);
+        list.insert(1);
+        list.insert(5);
+        list.insert(143);
+        list.insert(12);
+        list.insert(32);
+        list.insert(14444);
 
         list.display();
-        itr.reset();
-        itr.nextItem();
-        itr.deleteCurrent();
-        itr.nextItem();
-        System.out.println(itr.getCurrentItem());
+        System.out.println(list.removeSomewhere(14444));
         list.display();
-
+        System.out.println(list.isEmpty());
+        System.out.println(list.getSize());
     }
 }

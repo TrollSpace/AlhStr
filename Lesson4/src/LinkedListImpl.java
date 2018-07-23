@@ -3,10 +3,6 @@
  */
 public class LinkedListImpl implements LinkedList {
 
-    public void setFirstElement(Item firstElement) {
-        this.firstElement = firstElement;
-    }
-
     protected Item firstElement;
     protected int size;
 
