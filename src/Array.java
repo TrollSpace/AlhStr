@@ -7,13 +7,5 @@ public interface Array {
 
      boolean deleteElement(int value);
 
-     int getElement(int index);
-
      int findElement(int value);
-
-     void bubbleSort();
-
-     void selectSort();
-
-     void insertSort();
 }
