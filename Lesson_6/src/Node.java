@@ -14,4 +14,20 @@ public class Node {
     public int getId() {
         return id;
     }
+
+    public Node getLeftChild() {
+        return leftChild;
+    }
+
+    public void setLeftChild(Node leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public Node getRightChild() {
+        return rightChild;
+    }
+
+    public void setRightChild(Node rightChild) {
+        this.rightChild = rightChild;
+    }
 }
