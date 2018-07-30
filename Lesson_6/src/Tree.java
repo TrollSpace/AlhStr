@@ -3,6 +3,12 @@
  */
 public interface Tree {
 
+    enum TraverseMode{
+        PRE_ORDER,
+        POST_ORDER,
+        IN_ORDER,
+    }
+
     void insert(int id);
 
     boolean remove(int id);
@@ -14,4 +20,10 @@ public interface Tree {
     boolean isEmpty();
 
     int getRoot();
+
+    int getLevel();
+
+    void traverse (TraverseMode traverseMode);
+
+    boolean checkBalance();
 }
