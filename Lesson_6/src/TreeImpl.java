@@ -10,15 +10,15 @@ public class TreeImpl implements Tree {
     @Override
     public void insert(int id) {
         Node newNode = new Node(id);
-        Node parrent = findParentForInsert(newNode);
-        if(parrent == null){
+        Node parent = findParentForInsert(newNode);
+        if(parent == null){
             root = newNode;
         }
-        if(newNode.getId() > parrent.getId()){
-            parrent.setRightChild(newNode);
+        if(newNode.getId() > parent.getId()){
+            parent.setRightChild(newNode);
         }
         else{
-            parrent.setLeftChild(newNode);
+            parent.setLeftChild(newNode);
         }
 
         size++;
@@ -26,16 +26,16 @@ public class TreeImpl implements Tree {
 
     private Node findParentForInsert(Node newNode) {
         Node currentNode = root;
-        Node parrent = null;
+        Node parent = null;
         while (currentNode != null) {
-            parrent = currentNode;
+            parent = currentNode;
             if (newNode.getId() > currentNode.getId()) {
                 currentNode = currentNode.getRightChild();
             } else {
                 currentNode = currentNode.getLeftChild();
             }
         }
-        return parrent;
+        return parent;
     }
 
     @Override
