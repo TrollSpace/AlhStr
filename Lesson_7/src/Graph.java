@@ -3,5 +3,9 @@
  */
 public interface Graph {
 
-    boolean addVertex(Vertex vertex);
+    void add(Vertex vertex);
+
+    boolean remove(String label);
+
+    Vertex find(String label);
 }
