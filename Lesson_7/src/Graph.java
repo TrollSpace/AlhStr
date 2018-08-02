@@ -3,7 +3,7 @@
  */
 public interface Graph {
 
-    void addVertex(String label);
+    boolean addVertex(String label);
 
     boolean addAdj(String fromLabel, String toLabel);
 
@@ -12,4 +12,10 @@ public interface Graph {
     Vertex find(String label);
 
     int indexOf(String label);
+
+    boolean isEmpty();
+
+    int getSize();
+
+    void display();
 }

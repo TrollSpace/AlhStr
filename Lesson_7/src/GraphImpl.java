@@ -25,10 +25,19 @@ public class GraphImpl implements Graph {
     }
 
     @Override
-    public void addVertex(String label) {
-        Vertex newVertex = new Vertex(label);
-        vertexes[size++] = newVertex;
+    public boolean addVertex(String label) {
+        if (size < vertexes.length) {
+            Vertex newVertex = new Vertex(label);
+            for (int i = 0; i < vertexes.length; i++) {
+                if (vertexes[i] == null) {
+                    vertexes[i] = newVertex;
+                    size++;
+                    return true;
+                }
 
+            }
+        }
+        return false;
     }
 
     @Override
@@ -46,7 +55,7 @@ public class GraphImpl implements Graph {
     @Override
     public boolean remove(String label) {
         int vertexIndex = indexOf(label);
-        if(vertexIndex == -1){
+        if (vertexIndex == -1) {
             return false;
         }
         for (int i = 0; i < size; i++) {
@@ -70,7 +79,7 @@ public class GraphImpl implements Graph {
     @Override
     public int indexOf(String label) {
         for (int i = 0; i < size; i++) {
-            if(vertexes[i] == null){
+            if (vertexes[i] == null) {
                 continue;
             }
             if (vertexes[i].getLabel().equals(label)) {
@@ -78,5 +87,33 @@ public class GraphImpl implements Graph {
             }
         }
         return -1;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    @Override
+    public int getSize() {
+        return size;
+    }
+
+
+
+    @Override
+    public void display() {
+        for (int i = 0; i < vertexes.length; i++) {
+            if (vertexes[i] == null) {
+                continue;
+            }
+            String out = vertexes[i].toString();
+            for (int j = 0; j < vertexes.length; j++) {
+                if (matrixAdj[i][j] == 1) {
+                    out += " -> " + vertexes[j];
+                }
+            }
+            System.out.println(out);
+        }
     }
 }

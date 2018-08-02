@@ -3,31 +3,33 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Graph graph = new GraphImpl(8);
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-        graph.addVertex("E");
-        graph.addVertex("F");
-        graph.addVertex("G");
-        graph.addVertex("H");
+        Graph graph = new GraphImpl(10);
+        graph.addVertex("Moscow");
+        graph.addVertex("Tula");
+        graph.addVertex("Lipetsk");
+        graph.addVertex("Voronezh");
+        graph.addVertex("Ryazan");
+        graph.addVertex("Tambov");
+        graph.addVertex("Saratov");
+        graph.addVertex("Kaluga");
+        graph.addVertex("Orel");
+        graph.addVertex("Kursk");
 
-        graph.addAdj("A", "B");
-        graph.addAdj("A", "C");
-        graph.addAdj("A", "D");
+        graph.addAdj("Moscow", "Tula");
+        graph.addAdj("Moscow", "Ryazan");
+        graph.addAdj("Moscow", "Kaluga");
 
-        graph.addAdj("B", "E");
-        graph.addAdj("C", "F");
-        graph.addAdj("D", "G");
-        graph.addAdj("E", "H");
+        graph.addAdj("Tula", "Lipetsk");
+        graph.addAdj("Lipetsk", "Voronezh");
+        graph.addAdj("Voronezh", "Saratov");
+        graph.addAdj("Voronezh", "Kursk");
 
-        graph.addAdj("C", "G");
-        graph.addAdj("D", "H");
+        graph.addAdj("Tambov", "Ryazan");
+        graph.addAdj("Tambov", "Saratov");
+        graph.addAdj("Orel", "Kaluga");
+        graph.addAdj("Orel", "Kursk");
 
-        graph.remove("A");
-        System.out.println(graph.find("B"));
-
+        graph.display();
 
     }
 }
