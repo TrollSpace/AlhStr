@@ -45,17 +45,34 @@ public class GraphImpl implements Graph {
 
     @Override
     public boolean remove(String label) {
-        return false;
+        int vertexIndex = indexOf(label);
+        if(vertexIndex == -1){
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            matrixAdj[vertexIndex][i] = 0;
+            matrixAdj[i][vertexIndex] = 0;
+        }
+        vertexes[vertexIndex] = null;
+        size--;
+        return true;
     }
 
     @Override
     public Vertex find(String label) {
-        return null;
+        int i = indexOf(label);
+        if (i == -1) {
+            return null;
+        }
+        return vertexes[i];
     }
 
     @Override
     public int indexOf(String label) {
         for (int i = 0; i < size; i++) {
+            if(vertexes[i] == null){
+                continue;
+            }
             if (vertexes[i].getLabel().equals(label)) {
                 return i;
             }
