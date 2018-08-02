@@ -3,9 +3,13 @@
  */
 public interface Graph {
 
-    void add(Vertex vertex);
+    void addVertex(String label);
+
+    boolean addAdj(String fromLabel, String toLabel);
 
     boolean remove(String label);
 
     Vertex find(String label);
+
+    int indexOf(String label);
 }
