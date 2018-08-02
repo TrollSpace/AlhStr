@@ -18,4 +18,6 @@ public interface Graph {
     int getSize();
 
     void display();
+
+    void bfs(String startLabel);
 }

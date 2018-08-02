@@ -1,3 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * Created by Misha on 02.08.2018.
  */
@@ -99,7 +102,61 @@ public class GraphImpl implements Graph {
         return size;
     }
 
+    @Override
+    public void bfs(String startVertexLabel) {
+        Vertex vertex = find(startVertexLabel);
+        if (vertex == null) {
+            return;
+        }
 
+        Queue<Vertex> queue = new ArrayDeque();
+        visit(vertex, queue);
+
+        while (!queue.isEmpty()) {
+            vertex = queue.remove();
+            Vertex currentVertex = null;
+            while ((currentVertex = getAnyUnvisitedVertex(vertex)) != null) {
+                visit(currentVertex, queue);
+            }
+        }
+
+        resetVertexStates();
+    }
+
+    private Vertex getAnyUnvisitedVertex(Vertex vertex) {
+        for (int i = 0; i < vertexes.length; i++) {
+            Vertex currentVertex = vertexes[i];
+            if (hasEdge(vertex, currentVertex) && !currentVertex.isWasVisited()) {
+                return currentVertex;
+            }
+        }
+
+        return null;
+    }
+
+    private boolean hasEdge(Vertex from, Vertex to) {
+        return hasEdge(from.getLabel(), to.getLabel());
+    }
+
+    private boolean hasEdge(String fromLabel, String toLabel) {
+        int from = indexOf(fromLabel);
+        int to = indexOf(toLabel);
+        if (from == -1 || to == -1)
+            return false;
+
+        return matrixAdj[from][to] == 1;
+    }
+
+    private void resetVertexStates() {
+        for (int i = 0; i < vertexes.length; i++) {
+            vertexes[i].setWasVisited(false);
+        }
+    }
+
+    private void visit(Vertex vertex, Queue<Vertex> queue) {
+        vertex.setWasVisited(true);
+        queue.add(vertex);
+    }
 
     @Override
     public void display() {
