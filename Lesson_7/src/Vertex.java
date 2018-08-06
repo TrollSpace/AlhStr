@@ -4,6 +4,8 @@
 public class Vertex {
     private String label;
 
+    private Vertex preLabel;
+
     private boolean wasVisited = false;
 
     public Vertex(String label) {
@@ -13,6 +15,15 @@ public class Vertex {
     public String getLabel() {
         return label;
     }
+
+    public Vertex getPreLabel() {
+        return preLabel;
+    }
+
+    public void setPreLabel(Vertex preLabel) {
+        this.preLabel = preLabel;
+    }
+
 
     @Override
     public String toString() {

@@ -1,4 +1,6 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -103,6 +105,38 @@ public class GraphImpl implements Graph {
     }
 
     @Override
+    public List<String> findShortCutBetweenTwoDot(String labelStart, String labelFinish) {
+        Vertex vertexS = find(labelStart);
+        Vertex vertexF = find(labelFinish);
+        List<String> list = new ArrayList<>();
+        if (vertexS == null) {
+            return list;
+        }
+        Queue<Vertex> queue = new ArrayDeque();
+        visit(vertexS, queue);
+
+        while (!queue.isEmpty()) {
+            vertexS = getAnyUnvisitedVertex(queue.element());
+            if (vertexS == null) {
+                vertexS = queue.remove();
+                if (vertexS.equals(vertexF)) {
+                    while (vertexS != null) {
+                        list.add(vertexS.getLabel());
+                        vertexS = vertexS.getPreLabel();
+                    }
+
+                }
+            } else {
+                vertexS.setPreLabel(queue.element());
+                visit(vertexS, queue);
+            }
+        }
+
+        return list;
+
+    }
+
+    @Override
     public void bfs(String startVertexLabel) {
         Vertex vertex = find(startVertexLabel);
         if (vertex == null) {
@@ -123,7 +157,8 @@ public class GraphImpl implements Graph {
         resetVertexStates();
     }
 
-    private Vertex getAnyUnvisitedVertex(Vertex vertex) {
+
+    public Vertex getAnyUnvisitedVertex(Vertex vertex) {
         for (int i = 0; i < vertexes.length; i++) {
             Vertex currentVertex = vertexes[i];
             if (hasEdge(vertex, currentVertex) && !currentVertex.isWasVisited()) {
@@ -156,6 +191,11 @@ public class GraphImpl implements Graph {
     private void visit(Vertex vertex, Queue<Vertex> queue) {
         vertex.setWasVisited(true);
         queue.add(vertex);
+    }
+
+    private void visit(Vertex vertex, ArrayList<Vertex> list) {
+        vertex.setWasVisited(true);
+        list.add(vertex);
     }
 
     @Override

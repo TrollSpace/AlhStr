@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by Misha on 01.08.2018.
  */
@@ -20,4 +22,6 @@ public interface Graph {
     void display();
 
     void bfs(String startLabel);
+
+    List<String> findShortCutBetweenTwoDot(String moscow, String voronezh);
 }

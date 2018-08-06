@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by Misha on 02.08.2018.
  */
@@ -30,6 +32,14 @@ public class Main {
         graph.addAdj("Orel", "Kursk");
 
         graph.display();
+
+        graph.bfs("Moscow");
+        List<String> list = graph.findShortCutBetweenTwoDot("Moscow", "Voronezh");
+        for (String s : list) {
+            System.out.print(s + "->");
+
+        }
+        System.out.println();
 
     }
 }
