@@ -19,3 +19,5 @@ hs_err_pid*
 .gitignore
 .idea/
 AlhStr.iml
+Lesson_8/
+out/production/AlhStr/
