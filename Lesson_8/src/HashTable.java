@@ -3,7 +3,7 @@
  */
 public interface HashTable {
 
-    boolean insert(Item item);
+    void insert(Item item);
 
     Item remove(int id);
 
@@ -12,6 +12,8 @@ public interface HashTable {
     int getSize();
 
     int isEmpty();
+
+    void display();
 
 
 }

@@ -7,18 +7,19 @@ public class Item {
     private final String label;
     private Item nextItem;
 
-    public Item getNextItem() {
-        return nextItem;
+    public Item(int id, String label, int price) {
+        this.id = id;
+        this.label = label;
+        this.price = price;
+        this.nextItem = null;
     }
 
     public void setNextItem(Item nextItem) {
         this.nextItem = nextItem;
     }
 
-    public Item(int id, String label, int price) {
-        this.id = id;
-        this.label = label;
-        this.price = price;
+    public Item getNextItem() {
+        return nextItem;
     }
 
     public int getId() {
