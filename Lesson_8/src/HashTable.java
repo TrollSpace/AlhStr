@@ -11,7 +11,7 @@ public interface HashTable {
 
     int getSize();
 
-    int isEmpty();
+    boolean isEmpty();
 
     void display();
 
